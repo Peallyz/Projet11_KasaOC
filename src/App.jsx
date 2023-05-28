@@ -1,8 +1,7 @@
 import useFetch from "./hooks/useFetch";
 
 function App() {
-  const [data, loading] = useFetch("./src/data/data.json");
-  console.log(data, loading);
+  const [data] = useFetch("./src/data/data.json");
 
   return (
     <div>
