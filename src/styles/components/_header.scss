@@ -3,8 +3,14 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 140px;
+  @media screen and (max-width: 776px) {
+    height: 85px;
+  }
   img {
     height: 60px;
+    @media screen and (max-width: 776px) {
+      height: 43px;
+    }
   }
 
   li {
@@ -12,5 +18,9 @@ header {
     font-weight: 500;
     line-height: 34px;
     color: $primary-color;
+    @media screen and (max-width: 776px) {
+      font-size: 1.2rem;
+      line-height: 17px;
+    }
   }
 }

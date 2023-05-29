@@ -14,5 +14,10 @@ footer {
     font-size: 2.4rem;
     margin-bottom: 30px;
     line-height: 30px;
+    @media screen and (max-width: 776px) {
+      font-size: 1.2rem;
+      margin-bottom: 60px;
+      line-height: 17px;
+    }
   }
 }
