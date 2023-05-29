@@ -1,0 +1,40 @@
+$primary-color: #ff6060;
+@import "./components/header";
+@import "./components/footer";
+@import "./components/navBar";
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  font-size: 62.5%;
+  height: 100vh;
+}
+
+#root {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header,
+main {
+  padding: 0 100px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
