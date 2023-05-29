@@ -1,0 +1,36 @@
+header {
+  ul {
+    display: flex;
+    gap: 60px;
+    a {
+      position: relative;
+      text-transform: capitalize;
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        background: $primary-color;
+        height: 1px;
+        width: 100%;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-70%) scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 0;
+      }
+      &:hover {
+        &::before {
+          transform: translateX(-50%) scaleX(1);
+          opacity: 1;
+        }
+      }
+      &.current {
+        &::before {
+          transform: translateX(-50%) scaleX(1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
