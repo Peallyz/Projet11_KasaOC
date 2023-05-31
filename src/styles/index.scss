@@ -3,6 +3,9 @@ $primary-color: #ff6060;
 @import "./components/header";
 @import "./components/footer";
 @import "./components/navBar";
+@import "./components/herobanner";
+@import "./components/lodgings/lodgings";
+@import "./components/lodgings/lodgingCard";
 
 *,
 ::before,
@@ -21,16 +24,19 @@ html {
 #root {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-header,
-main {
+header {
   padding: 0 100px;
   @media screen and (max-width: 776px) {
     padding: 0 20px;
+  }
+}
+
+main {
+  padding: 0 100px 210px;
+  @media screen and (max-width: 776px) {
+    padding: 0 20px 210px;
   }
 }
 
