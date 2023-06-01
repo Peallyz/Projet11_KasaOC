@@ -1,4 +1,4 @@
-.lodging {
+.lodgingCard {
   display: block;
   width: 340px;
   height: 340px;
@@ -27,7 +27,7 @@
     width: 100%;
     height: calc(100% - 90px);
   }
-  &__title {
+  .lodging__title {
     display: flex;
     align-items: center;
     padding: 20px;
