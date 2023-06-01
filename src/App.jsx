@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Error from "./pages/Error";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Lodging from "./pages/Lodging";
 
 function App() {
   const [data] = useFetch("./src/data/data.json");
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home data={data} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/:id" element={<Home />} />
+        <Route path="/:id" element={<Lodging data={data} />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
