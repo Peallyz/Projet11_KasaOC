@@ -1,0 +1,119 @@
+.lodging {
+  &__banner {
+    width: 100%;
+    height: 415px;
+    object-fit: cover;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    @media screen and (max-width: 776px) {
+      height: 300px;
+    }
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    color: $primary-color;
+    @media screen and (max-width: 776px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+    &--left {
+      h1 {
+        font-size: 3.6rem;
+        font-weight: 500;
+        line-height: 50px;
+        @media screen and (max-width: 776px) {
+          font-size: 1.8rem;
+          line-height: 25px;
+        }
+      }
+      p {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 26px;
+        margin-bottom: 20px;
+        @media screen and (max-width: 776px) {
+          font-size: 1.4rem;
+          line-height: 20px;
+          margin-bottom: 12px;
+          margin-top: 5px;
+        }
+      }
+      ul {
+        display: flex;
+        gap: 10px;
+        color: white;
+        li {
+          background-color: $primary-color;
+          min-width: 115px;
+          text-align: center;
+          border-radius: 10px;
+          font-size: 1.4rem;
+          line-height: 20px;
+          font-weight: 500;
+          padding: 3px 10px;
+          flex-wrap: wrap;
+          @media screen and (max-width: 776px) {
+            font-size: 1rem;
+            min-width: 85px;
+          }
+        }
+      }
+    }
+    &--right {
+      @media screen and (max-width: 776px) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .lodging__host {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 65px;
+        gap: 10px;
+        margin-bottom: 25px;
+        @media screen and (max-width: 776px) {
+          height: 32px;
+        }
+
+        p {
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+          font-size: 1.8rem;
+          font-weight: 500;
+          line-height: 26px;
+          width: fit-content;
+          @media screen and (max-width: 776px) {
+            font-size: 1.2rem;
+            line-height: 17px;
+          }
+        }
+        .avatar {
+          border-radius: 50%;
+          height: 100%;
+          aspect-ratio: 1/1;
+        }
+      }
+      .lodging__rating {
+        display: flex;
+        gap: 15px;
+        @media screen and (max-width: 776px) {
+          gap: 6px;
+          height: 32px;
+        }
+
+        img {
+          height: 24px;
+          aspect-ratio: 1/1;
+          @media screen and (max-width: 776px) {
+            height: 13px;
+          }
+        }
+      }
+    }
+  }
+}
