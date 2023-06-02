@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 
 export default function useFetch(url) {
-  const [data, setData] = useState({ data: [], loading: true });
+  const [data, setData] = useState({
+    data: undefined,
+    loading: true,
+    error: undefined,
+  });
 
   useEffect(() => {
     fetch(url)
@@ -10,10 +14,10 @@ export default function useFetch(url) {
         setData({ data: data, loading: false });
       })
       .catch((err) => {
-        setData({ data: [], loading: false });
+        setData({ data: undefined, loading: false });
         console.log(err);
       });
   }, [url]);
 
-  return [data.data, data.loading];
+  return [data.data, data.loading, data.error];
 }
