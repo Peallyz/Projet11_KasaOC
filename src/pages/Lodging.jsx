@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import LodgingDescription from "../Components/Lodging/LodgingDescription";
+import Accordion from "../Components/Accordion/Accordion";
 
 const Lodging = ({ data }) => {
   Lodging.propTypes = {
@@ -24,6 +25,10 @@ const Lodging = ({ data }) => {
       ) : (
         <h2>Loading</h2>
       )}
+      <section className="accordions">
+        <Accordion type="description" data={currentData} isDynamic={true} />
+        <Accordion type="equipments" data={currentData} isDynamic={true} />
+      </section>
     </main>
   );
 };
