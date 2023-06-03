@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const Herobanner = ({ img, title }) => {
   Herobanner.propTypes = {
     img: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
   };
 
   const [background, setBackground] = useState("");
@@ -12,10 +12,10 @@ const Herobanner = ({ img, title }) => {
   useEffect(() => {
     switch (img) {
       case "falaises":
-        setBackground("../../../public/img/falaises.png");
+        setBackground(".//img/falaises.png");
         break;
       case "montagne":
-        setBackground("../../../public/img/montagnes.png");
+        setBackground("./img/montagnes.png");
         break;
 
       default:
