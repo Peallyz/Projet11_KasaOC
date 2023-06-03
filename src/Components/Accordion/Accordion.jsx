@@ -4,8 +4,8 @@ import { useState } from "react";
 const Accordion = ({ type, title = "", data, isDynamic }) => {
   Accordion.propTypes = {
     type: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    data: PropTypes.array,
+    title: PropTypes.string,
+    data: PropTypes.object,
     isDynamic: PropTypes.bool.isRequired,
   };
 
