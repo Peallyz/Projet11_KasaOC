@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Carousel from "../Herobanner/Carousel";
 
 const LodgingDescription = ({ data }) => {
   LodgingDescription.propTypes = {
@@ -7,7 +8,7 @@ const LodgingDescription = ({ data }) => {
 
   return (
     <>
-      <img src={data.cover} alt={data.cover} className="lodging__banner" />
+      <Carousel pictures={data.pictures} />
       <div className="lodging__info">
         <div className="lodging__info--left">
           <h1>{data.title}</h1>
