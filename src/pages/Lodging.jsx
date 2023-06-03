@@ -12,7 +12,7 @@ const Lodging = ({ data }) => {
 
   useEffect(() => {
     setCurrentData(
-      data.find(
+      data?.find(
         (lodging) => lodging.id === window.location.pathname.split("/")[1]
       )
     );
@@ -21,14 +21,16 @@ const Lodging = ({ data }) => {
   return (
     <main className="lodging">
       {currentData ? (
-        <LodgingDescription data={currentData} />
+        <>
+          <LodgingDescription data={currentData} />
+          <section className="accordions">
+            <Accordion type="description" data={currentData} isDynamic={true} />
+            <Accordion type="equipments" data={currentData} isDynamic={true} />
+          </section>
+        </>
       ) : (
         <h2>Loading</h2>
       )}
-      <section className="accordions">
-        <Accordion type="description" data={currentData} isDynamic={true} />
-        <Accordion type="equipments" data={currentData} isDynamic={true} />
-      </section>
     </main>
   );
 };
