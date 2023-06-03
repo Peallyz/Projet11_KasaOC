@@ -2,9 +2,38 @@
   &__banner {
     width: 100%;
     height: 415px;
-    object-fit: cover;
     border-radius: 25px;
     margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    .carousel {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+      li {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .chevron {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      z-index: 2;
+      cursor: pointer;
+      &.chevron__right {
+        right: 20px;
+        rotate: 90deg;
+      }
+      &.chevron__left {
+        left: 20px;
+        rotate: -90deg;
+      }
+    }
     @media screen and (max-width: 776px) {
       height: 300px;
     }
