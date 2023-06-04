@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import LodgingDescription from "../Components/Lodging/LodgingDescription";
 import Accordion from "../Components/Accordion/Accordion";
+import Loader from "../Components/Loader/Loader";
 
 const Lodging = ({ data }) => {
   Lodging.propTypes = {
@@ -29,7 +30,7 @@ const Lodging = ({ data }) => {
           </section>
         </>
       ) : (
-        <h2>Loading</h2>
+        <Loader />
       )}
     </main>
   );
