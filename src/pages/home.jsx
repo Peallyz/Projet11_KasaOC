@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import Herobanner from "../Components/Herobanner/Herobanner";
 import LodgingCard from "../Components/Lodging/LodgingCard";
+import Loader from "../Components/Loader/Loader";
 
 const Home = ({ data }) => {
   Home.propTypes = {
     data: PropTypes.array.isRequired,
   };
-  console.log(data);
 
   return (
     <main>
@@ -15,10 +15,7 @@ const Home = ({ data }) => {
         {data ? (
           data.map((lodging) => <LodgingCard data={lodging} key={lodging.id} />)
         ) : (
-          <h2 className="errorMessage">
-            Il n&apos;y a pas d&apos;hebergements disponibles, revenez plus tard
-            pour les découvrir
-          </h2>
+          <Loader />
         )}
       </section>
     </main>
