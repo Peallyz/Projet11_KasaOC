@@ -8,7 +8,7 @@ const Accordion = ({ type, title = "", data, isDynamic }) => {
     data: PropTypes.object,
     isDynamic: PropTypes.bool.isRequired,
   };
-
+  // Handle the accordion opening and closing state to display the content and turn the chevron
   const [isClosed, setIsClosed] = useState(true);
 
   return isDynamic ? (

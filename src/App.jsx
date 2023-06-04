@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 import Lodging from "./pages/Lodging";
 
 function App() {
+  // Fetch the data from the json file
   const [data] = useFetch("./src/data/data.json");
 
   return (

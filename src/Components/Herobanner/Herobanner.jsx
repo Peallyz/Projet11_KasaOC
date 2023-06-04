@@ -10,6 +10,7 @@ const Herobanner = ({ img, title }) => {
   const [background, setBackground] = useState("");
 
   useEffect(() => {
+    // Set the background image depending on the img prop
     switch (img) {
       case "falaises":
         setBackground(".//img/falaises.png");

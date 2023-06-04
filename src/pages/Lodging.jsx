@@ -13,6 +13,8 @@ const Lodging = ({ data }) => {
 
   useEffect(() => {
     setCurrentData(
+      // Find the lodging in the data array that has the same id as the one in the url
+
       data?.find(
         (lodging) => lodging.id === window.location.pathname.split("/")[1]
       )

@@ -7,7 +7,7 @@ const Home = ({ data }) => {
   Home.propTypes = {
     data: PropTypes.array.isRequired,
   };
-
+  // display loader while data is not fetched then display the lodgings cards
   return (
     <main>
       <Herobanner img="falaises" title="Chez vous, partout et ailleurs" />
