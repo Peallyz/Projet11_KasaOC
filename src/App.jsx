@@ -9,7 +9,7 @@ import Lodging from "./pages/Lodging";
 
 function App() {
   // Fetch the data from the json file
-  const [data] = useFetch("./src/data/data.json");
+  const [data, loading] = useFetch("./src/data/data.json");
 
   return (
     <BrowserRouter>
@@ -17,8 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home data={data} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/:id" element={<Lodging data={data} />} />
-        <Route path="*" element={<Error />} />
+        <Route
+          path="/:id"
+          element={<Lodging data={data} loading={loading} />}
+        />
+        <Route path="/error" element={<Error />} />
       </Routes>
       <Footer />
     </BrowserRouter>
