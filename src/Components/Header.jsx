@@ -5,7 +5,6 @@ const Header = () => {
   return (
     <header>
       <NavLink to="/">
-        {" "}
         <img src="./assets/logo_orange.png" alt="Logo de Kasa" />{" "}
       </NavLink>
       <Navbar />
