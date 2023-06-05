@@ -3,18 +3,27 @@ import { useEffect, useState } from "react";
 import LodgingDescription from "../Components/Lodging/LodgingDescription";
 import Accordion from "../Components/Accordion/Accordion";
 import Loader from "../Components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
 
-const Lodging = ({ data }) => {
+const Lodging = ({ data, loading }) => {
   Lodging.propTypes = {
     data: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
   };
 
   const [currentData, setCurrentData] = useState(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+    // If the data is not loading, check if the lodging id in the url is valid and redirect to error page if not
+    if (!loading) {
+      !data?.find(
+        (lodging) => lodging.id === window.location.pathname.split("/")[1]
+      ) && navigate("/error");
+    }
     setCurrentData(
       // Find the lodging in the data array that has the same id as the one in the url
-
       data?.find(
         (lodging) => lodging.id === window.location.pathname.split("/")[1]
       )
