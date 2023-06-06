@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Carousel = ({ pictures }) => {
   Carousel.propTypes = {
@@ -8,28 +8,31 @@ const Carousel = ({ pictures }) => {
 
   const [imgPosition, setImgPosition] = useState(1);
 
-  const handleImgPosition = (direction) => {
-    if (direction === "plus") {
-      if (imgPosition === pictures.length) {
-        setImgPosition(1);
-      } else {
-        setImgPosition(imgPosition + 1);
+  const handleImgPosition = useCallback(
+    (direction) => {
+      if (direction === "plus") {
+        if (imgPosition === pictures.length) {
+          setImgPosition(1);
+        } else {
+          setImgPosition(imgPosition + 1);
+        }
+      } else if (direction === "minus") {
+        if (imgPosition === 1) {
+          setImgPosition(pictures.length);
+        } else {
+          setImgPosition(imgPosition - 1);
+        }
       }
-    } else if (direction === "minus") {
-      if (imgPosition === 1) {
-        setImgPosition(pictures.length);
-      } else {
-        setImgPosition(imgPosition - 1);
-      }
-    }
-  };
+    },
+    [imgPosition, pictures.length]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleImgPosition("plus");
     }, 6000);
     return () => clearInterval(interval);
-  }, [imgPosition]);
+  }, [handleImgPosition, imgPosition]);
 
   return (
     <div className="lodging__banner">
