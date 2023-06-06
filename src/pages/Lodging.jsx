@@ -10,8 +10,10 @@ const Lodging = ({ data, loading }) => {
     data: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
   };
+  console.log(loading);
 
   const [currentData, setCurrentData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -28,11 +30,12 @@ const Lodging = ({ data, loading }) => {
         (lodging) => lodging.id === window.location.pathname.split("/")[1]
       )
     );
-  }, [currentData, data]);
+    setIsLoading(loading);
+  }, [currentData, data, loading, navigate]);
 
   return (
     <main className="lodging">
-      {currentData ? (
+      {!isLoading ? (
         <>
           <LodgingDescription data={currentData} />
           <section className="accordions">
