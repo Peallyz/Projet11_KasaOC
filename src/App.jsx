@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home data={data} />} />
+        <Route path="/" element={<Home data={data} loading={loading} />} />
         <Route path="/about" element={<About />} />
         <Route
           path="/:id"
