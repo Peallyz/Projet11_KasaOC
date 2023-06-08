@@ -6,6 +6,7 @@ import Error from "./pages/Error";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Lodging from "./pages/Lodging";
+import { Navigate } from "react-router-dom";
 
 function App() {
   // Fetch the data from the json file
@@ -22,6 +23,7 @@ function App() {
           element={<Lodging data={data} loading={loading} />}
         />
         <Route path="/error" element={<Error />} />
+        <Route path="*" element={<Navigate to="/error" />} />
       </Routes>
       <Footer />
     </BrowserRouter>
