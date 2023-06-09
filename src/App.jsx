@@ -1,8 +1,8 @@
 import useFetch from "./hooks/useFetch";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Error from "./pages/Error";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Error from "./Pages/Error";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Lodging from "./pages/Lodging";
