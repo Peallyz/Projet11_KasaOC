@@ -2,12 +2,6 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 const Accordion = ({ type, title = "", data, isDynamic }) => {
-  Accordion.propTypes = {
-    type: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    data: PropTypes.object,
-    isDynamic: PropTypes.bool.isRequired,
-  };
   // Handle the accordion opening and closing state to display the content and turn the chevron
   const [isClosed, setIsClosed] = useState(true);
 
@@ -53,6 +47,12 @@ const Accordion = ({ type, title = "", data, isDynamic }) => {
       </div>
     </div>
   );
+};
+Accordion.propTypes = {
+  type: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  data: PropTypes.object,
+  isDynamic: PropTypes.bool.isRequired,
 };
 
 export default Accordion;

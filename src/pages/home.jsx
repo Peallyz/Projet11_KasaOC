@@ -5,10 +5,6 @@ import Loader from "../Components/Loader/Loader";
 import { useEffect, useState } from "react";
 
 const Home = ({ data, loading }) => {
-  Home.propTypes = {
-    data: PropTypes.array,
-    loading: PropTypes.bool.isRequired,
-  };
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,4 +25,8 @@ const Home = ({ data, loading }) => {
   );
 };
 
+Home.propTypes = {
+  data: PropTypes.array,
+  loading: PropTypes.bool.isRequired,
+};
 export default Home;

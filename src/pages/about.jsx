@@ -4,7 +4,7 @@ import Accordion from "../Components/Accordion/Accordion";
 const About = () => {
   return (
     <main>
-      <Herobanner img="montagne" />
+      <Herobanner img="montagnes" />
       <section className="accordions accordions__about">
         <Accordion
           type="description"

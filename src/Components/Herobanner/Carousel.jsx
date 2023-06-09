@@ -2,10 +2,6 @@ import PropTypes from "prop-types";
 import { useCallback, useEffect, useState } from "react";
 
 const Carousel = ({ pictures }) => {
-  Carousel.propTypes = {
-    pictures: PropTypes.array.isRequired,
-  };
-
   const [imgPosition, setImgPosition] = useState(1);
 
   const handleImgPosition = useCallback(
@@ -73,4 +69,7 @@ const Carousel = ({ pictures }) => {
   );
 };
 
+Carousel.propTypes = {
+  pictures: PropTypes.array.isRequired,
+};
 export default Carousel;

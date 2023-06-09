@@ -2,10 +2,6 @@ import PropTypes from "prop-types";
 import Carousel from "../Herobanner/Carousel";
 
 const LodgingDescription = ({ data }) => {
-  LodgingDescription.propTypes = {
-    data: PropTypes.object.isRequired,
-  };
-
   return (
     <>
       <Carousel pictures={data.pictures} />
@@ -48,6 +44,9 @@ const LodgingDescription = ({ data }) => {
       </div>
     </>
   );
+};
+LodgingDescription.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default LodgingDescription;
