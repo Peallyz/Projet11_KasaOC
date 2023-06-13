@@ -1,14 +1,9 @@
 import { PropTypes } from "prop-types";
-import { useEffect, useState } from "react";
 
 const Herobanner = ({ img, title }) => {
-  const [background, setBackground] = useState("");
-
-  useEffect(() => setBackground(`./img/${img}.png`), [img]);
-
   return (
     <div className="herobanner">
-      <img className="herobanner__background" src={background} />
+      <img className="herobanner__background" src={`./img/${img}.png`} />
       {title ? <h1>{title}</h1> : ""}
     </div>
   );
