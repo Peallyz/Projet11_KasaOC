@@ -50,8 +50,20 @@ const Lodging = () => {
         <>
           <LodgingDescription data={currentData} />
           <section className="accordions">
-            <Accordion type="description" data={currentData} isDynamic={true} />
-            <Accordion type="equipments" data={currentData} isDynamic={true} />
+            <Accordion
+              title="Description"
+              dataComponent={<p>{currentData.description}</p>}
+            />
+            <Accordion
+              title="Équipements"
+              dataComponent={
+                <ul>
+                  {currentData.equipments.map((equipment) => (
+                    <li key={equipment}>{equipment}</li>
+                  ))}
+                </ul>
+              }
+            />
           </section>
         </>
       ) : (
