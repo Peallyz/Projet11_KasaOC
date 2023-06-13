@@ -1,22 +1,39 @@
-import PropTypes from "prop-types";
 import Herobanner from "../Components/Herobanner/Herobanner";
 import LodgingCard from "../Components/Lodging/LodgingCard";
 import Loader from "../Components/Loader/Loader";
 import { useEffect, useState } from "react";
 
-const Home = ({ data, loading }) => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState({
+    data: undefined,
+    loading: true,
+    error: undefined,
+  });
 
   useEffect(() => {
-    setIsLoading(loading);
-  }, [loading]);
+    // Fetch the data from the json file
+    fetch("./src/data/data.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setData({ data: data, loading: false });
+      })
+      .catch((err) => {
+        setData({ data: undefined, loading: false });
+        console.log(err);
+      });
+    setIsLoading(data.loading);
+  }, [data]);
+
   // display loader while data is not fetched then display the lodgings cards
   return (
     <main>
       <Herobanner img="falaises" title="Chez vous, partout et ailleurs" />
       <section className="lodgings">
         {!isLoading ? (
-          data.map((lodging) => <LodgingCard data={lodging} key={lodging.id} />)
+          data.data.map((lodging) => (
+            <LodgingCard data={lodging} key={lodging.id} />
+          ))
         ) : (
           <Loader />
         )}
@@ -25,8 +42,4 @@ const Home = ({ data, loading }) => {
   );
 };
 
-Home.propTypes = {
-  data: PropTypes.array,
-  loading: PropTypes.bool.isRequired,
-};
 export default Home;
