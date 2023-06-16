@@ -4,7 +4,6 @@ import Loader from "../Components/Loader/Loader";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({
     data: undefined,
     loading: true,
@@ -13,6 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch the data from the json file
+
     fetch("./src/data/data.json")
       .then((res) => res.json())
       .then((data) => {
@@ -22,15 +22,14 @@ const Home = () => {
         setData({ data: undefined, loading: false });
         console.log(err);
       });
-    setIsLoading(data.loading);
-  }, [data]);
+  }, []);
 
   // display loader while data is not fetched then display the lodgings cards
   return (
     <main>
       <Herobanner img="falaises" title="Chez vous, partout et ailleurs" />
       <section className="lodgings">
-        {!isLoading ? (
+        {!data.loading ? (
           data.data.map((lodging) => (
             <LodgingCard data={lodging} key={lodging.id} />
           ))

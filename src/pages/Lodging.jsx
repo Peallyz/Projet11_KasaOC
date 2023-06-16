@@ -11,26 +11,20 @@ const Lodging = () => {
     loading: true,
     error: undefined,
   });
-  const [currentData, setCurrentData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [currentData, setCurrentData] = useState(null);
 
   const navigate = useNavigate();
 
   const path = useParams();
 
+  const currentData =
+    !data.loading && data.data.find((lodging) => lodging.id === path.id);
+
+  if (!data.loading && !currentData) {
+    navigate("/error");
+  }
+
   useEffect(() => {
-    // If the data is not loading, check if the lodging id in the url is valid and redirect to error page if not
-    if (!data.loading) {
-      !data.data.find((lodging) => lodging.id === path.id)
-        ? navigate("/error")
-        : setCurrentData(
-            // Find the lodging in the data array that has the same id as the one in the url
-            data.data.find((lodging) => lodging.id === path.id)
-          );
-    }
-
-    // Fetch the data from the json file
-
     fetch("./src/data/data.json")
       .then((res) => res.json())
       .then((data) => {
@@ -40,30 +34,24 @@ const Lodging = () => {
         setData({ data: undefined, loading: false });
         console.log(err);
       });
-
-    setIsLoading(data.loading);
-  }, [currentData, data, navigate, path]);
+  }, [currentData]);
 
   return (
     <main className="lodging">
-      {!isLoading ? (
+      {!data.loading ? (
         <>
           <LodgingDescription data={currentData} />
           <section className="accordions">
-            <Accordion
-              title="Description"
-              dataComponent={<p>{currentData.description}</p>}
-            />
-            <Accordion
-              title="Équipements"
-              dataComponent={
-                <ul>
-                  {currentData.equipments.map((equipment) => (
-                    <li key={equipment}>{equipment}</li>
-                  ))}
-                </ul>
-              }
-            />
+            <Accordion title="Description">
+              <p>{currentData.description}</p>
+            </Accordion>
+            <Accordion title="Équipements">
+              <ul>
+                {currentData.equipments.map((equipment) => (
+                  <li key={equipment}>{equipment}</li>
+                ))}
+              </ul>
+            </Accordion>
           </section>
         </>
       ) : (
