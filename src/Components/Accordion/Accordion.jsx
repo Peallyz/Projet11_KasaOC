@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const Accordion = ({ title = "", dataComponent }) => {
+const Accordion = ({ title = "", children }) => {
   // Handle the accordion opening and closing state to display the content and turn the chevron
   const [isClosed, setIsClosed] = useState(true);
 
-  return dataComponent ? (
+  return children ? (
     <div className={isClosed ? "accordion close" : "accordion"}>
       <div className="accordion__title" onClick={() => setIsClosed(!isClosed)}>
         <h3>{title}</h3>
@@ -14,7 +14,7 @@ const Accordion = ({ title = "", dataComponent }) => {
           alt="chevron pour dérouler les informations textuelles"
         />
       </div>
-      <div className="accordion__content">{dataComponent}</div>
+      <div className="accordion__content">{children}</div>
     </div>
   ) : (
     ""
@@ -22,7 +22,7 @@ const Accordion = ({ title = "", dataComponent }) => {
 };
 Accordion.propTypes = {
   title: PropTypes.string,
-  dataComponent: PropTypes.object,
+  children: PropTypes.object,
 };
 
 export default Accordion;
